@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AuthWrapper } from './components/AuthWrapper';
 import { Sidebar } from './components/Sidebar';
 import { Dashboard } from './components/Dashboard';
 import { Analysis } from './components/Analysis';
@@ -57,12 +58,14 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
-      <Sidebar activeStep={activeStep} onStepChange={setActiveStep} />
-      <main className="flex-1 overflow-auto">
-        {renderActiveComponent()}
-      </main>
-    </div>
+    <AuthWrapper>
+      <div className="min-h-screen bg-gray-50 flex">
+        <Sidebar activeStep={activeStep} onStepChange={setActiveStep} />
+        <main className="flex-1 overflow-auto">
+          {renderActiveComponent()}
+        </main>
+      </div>
+    </AuthWrapper>
   );
 }
 
